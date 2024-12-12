@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+Случайный секрет
+{% endblock %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Случайный секрет</title>
+</head>
+<body>
+    <h1>Случайный секрет</h1>
+    <div id="secret-container">
+
+        <textarea id="secret-textarea" rows="4" cols="50"></textarea>
+    </div>
+
+    <button onclick="getRandomSecret()">Прочитать</button>
+    <script>
+    function getRandomSecret() {
+
+        fetch('/api/get-secret/', { method: 'GET' })
+            .then(response => response.json())
+            .then(data => {
+                const secretTextArea = document.getElementById('secret-textarea');
+                if ('secret' in data) {
+                    secretTextArea.value = data.secret;
+                } else {
+                    alert("Ошибка: " + data.error);
+                }
+            });
+    }
+</script>
+        <br>
+        <br>
+
+</body>
+
+{% endblock %}

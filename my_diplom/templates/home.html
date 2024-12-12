@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+
+{% block errors %}
+    {% if message %}
+        <h4><p style="color: green;">{{ message }}</p></h4>
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+<h1>Добро пожаловать на Все-секреты.ру</h1>
+<p>Тут Вы можете анонимно поделиться любым секретом. Но чтобы прочитать секрет, нужно Войти</p>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
